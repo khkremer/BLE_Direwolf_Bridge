@@ -29,7 +29,7 @@ direwolf -p
 
 We can now start the script:
 
-python3 BLE_Direwolf_Bridge.py
+python3 ble_direwolf_bridge.py
 
 Both Direwolf and the script will produce debug output. 
 
