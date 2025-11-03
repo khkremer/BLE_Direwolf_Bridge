@@ -21,6 +21,8 @@ cmake ..
 make -j4
 sudo make install
 
+## Running Direwolf and the Bridge
+
 At this point, edit the ~/direwolf.conf file (a sample lives in direwolf/build/direwolf.conf). 
 
 Direwolf and the BLE_Direwolf_Bridge.py script communicate via the /tmp/kisstnc link to a pseudo terminal that Direwolf creates. For this to work, we need to start Direwolf with the -p arguments:
