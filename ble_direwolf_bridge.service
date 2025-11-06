@@ -1,0 +1,12 @@
+[Unit]
+Description=BLE Direwolf Bridge
+After=direwolf.service
+
+[Service]
+Type=forking
+ExecStart=/usr/bin/screen -S ble_direwolf_bridge -dm /usr/local/bin/ble_direwolf_bridge.py
+
+Restart=always
+
+[Install]
+WantedBy=default.target

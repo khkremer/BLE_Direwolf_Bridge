@@ -1,0 +1,12 @@
+[Unit]
+Description=Direwolf
+After=network.target
+
+[Service]
+Type=forking
+ExecStart=/usr/bin/screen -S direwolf -dm /usr/local/bin/direwolf -c /home/khk/direwolf.conf -p
+
+Restart=always
+
+[Install]
+WantedBy=default.target
