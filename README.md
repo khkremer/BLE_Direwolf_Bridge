@@ -37,4 +37,31 @@ Both Direwolf and the script will produce debug output.
 
 Connect to Pi using e.g. RadioMail by selecting the KISS TNC in Settings>Packet KISS TNC Modem>Default TNC - the bridge should be shown under BLE KISS TNC - Audo discovered. 
 
+## Starting Direwolf and the Bridge at Boot Time
+The systemd configuration requires that the screen package is installed. Run the following command to install it:
 
+sudo apt install sreen
+
+Copy the two .service files to /etc/systemd/system and run the following commands:
+
+sudo systemctl enable direwolf.system
+sudo systemctl start direwolf.system
+sudo syetmctl enable ble_direwolf_bridge.service
+sudo syetmctl start ble_direwolf_bridge.service
+
+To check the status of the two screen commands, which in turn start direwolf and the bridge script, run this:
+
+sudo screen -ls
+
+This will show the all screen sessions that are currently active. The output will look like this:
+
+There are screens on:
+	1390.ble_direwolf_bridge	(04/11/25 15:01:04)	(Detached)
+	1172.direwolf	(04/11/25 14:54:17)	(Detached)
+2 Sockets in /run/screen/S-root.
+
+Both proceses show as "Detached", so they are running in the background. The screen application can be used to re-attach to one of these processes:
+
+sudo screen -r direwolf
+
+This will show the output of the direwolf command. To detach from the session again, use Ctrl-A D (press ctrl-A and release the keys, then push the d key).
